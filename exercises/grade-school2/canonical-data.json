@@ -1,0 +1,155 @@
+{
+    "exercise": "grade-school2",
+    "comments": [
+        "Given students' names along with the grade that they are in, ",
+        "create a roster for the school."
+    ],
+    "cases": [
+        {
+          "uuid": "806b873f-13ca-4b19-9161-e3e11bdd15ef",
+          "description": "Roster is empty when no student is added",
+          "property": "roster",
+          "input": {
+            "students": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "9337267f-7793-4b90-9b4a-8e3978408824",
+          "description": "Add a student",
+          "property": "add",
+          "input": {
+            "students": [["Aimee", 2]]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "aff83e6e-6bdc-4753-9f98-142d19e3f5c4",
+          "description": "Student is added to the roster",
+          "property": "roster",
+          "input": {
+            "students": [["Aimee", 2]]
+          },
+          "expected": ["Aimee"]
+        },
+        {
+          "uuid": "73c3ca75-0c16-40d7-82f5-ed8fe17a8e4a",
+          "description": "Adding multiple students in same the grade",
+          "property": "add",
+          "input": {
+            "students": [["Blair", 2], ["James", 2], ["Paul", 2]]
+          },
+          "expected": [true, true, true]
+        },
+        {
+          "uuid": "c398a433-7a4e-4d80-b379-938944c68a64",
+          "description": "Multiple students in the same grade are added to the roster",
+          "property": "roster",
+          "input": {
+            "students": [["Blair", 2], ["James", 2], ["Paul", 2]]
+          },
+          "expected": ["Blair", "James", "Paul"]
+        },
+        {
+          "uuid": "87c871c1-6bde-4413-9c44-73d59a259d83",
+          "description": "Cannot add student to same grade more than once",
+          "property": "add",
+          "input": {
+            "students": [["Aimee", 2], ["Aimee", 2]]
+          },
+          "expected": [true, false]
+        },
+        {
+          "uuid": "d7982c4f-1602-49f6-a651-620f2614243a",
+          "description": "Student not added to same grade more than once",
+          "property": "roster",
+          "input": {
+            "students": [["Aimee", 2], ["Aimee", 2]]
+          },
+          "expected": ["Aimee"]
+        },
+        {
+          "uuid": "e70d5d8f-43a9-41fd-94a4-1ea0fa338056",
+          "description": "Adding students in multiple grades",
+          "property": "add",
+          "input": {
+            "students": [["Chelse", 3], ["Logan", 7]]
+          },
+          "expected": [true, true]
+        },
+        {
+          "uuid": "d7fe849e-ce01-4612-8b61-05a633c34f26",
+          "description": "Students in multiple grades are added to the roster",
+          "property": "roster",
+          "input": {
+            "students": [["Chelse", 3], ["Logan", 7]]
+          },
+          "expected": ["Chelsea", "Logan"]
+        },
+        {
+          "uuid": "7df542f1-57ce-433c-b249-ff77028ec479",
+          "description": "Cannot add same student to multiple grades",
+          "property": "add",
+          "input": {
+            "students": [["Aimee", 2], ["Aimee", 1]]
+          },
+          "expected": [true, false]
+        },
+        {
+          "uuid": "c7ec1c5e-9ab7-4d3b-be5c-29f2f7a237c5",
+          "description": "Student not added to multiple grades",
+          "property": "roster",
+          "input": {
+            "students": [["Aimee", 2], ["Aimee", 1]]
+          },
+          "expected": ["Aimee"]
+        },
+        {
+          "uuid": "d9af4f19-1ba1-48e7-94d0-dabda4e5aba6",
+          "description": "Students are sorted by grades in the roster",
+          "property": "roster",
+          "input": {
+            "students": [["Jim", 3], ["Peter", 2], ["Anna", 1]]
+          },
+          "expected": ["Anna", "Peter", "Jim"]
+        },
+        {
+          "uuid": "d9fb5bea-f5aa-4524-9d61-c158d8906807",
+          "description": "Students are sorted by name in the roster",
+          "property": "roster",
+          "input": {
+            "students": [["Peter", 2], ["Zoe", 2], ["Alex", 2]]
+          },
+          "expected": ["Alex", "Peter", "Zoe"]
+        },
+        {
+          "uuid": "4227a6ba-7734-4029-83bc-24b1e0bcad82",
+          "description": "Students are sorted by grades and names in the roster",
+          "property": "roster",
+          "input": {
+            "students": [["Peter", 2], ["Anna", 1], ["Barb", 1], ["Zoe", 2], ["Alex", 2], ["Jim", 3], ["Charlie", 1]]
+          },
+          "expected": ["Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim"]
+        },
+        {
+          "uuid": "1e0cf06b-26e0-4526-af2d-a2e2df6a51d6",
+          "description": "Grade is empty if no students in that grade",
+          "property": "grade",
+          "input": {
+            "students": [["Peter", 2], ["Zoe", 2], ["Alex", 2], ["Jim", 3]],
+            "desiredGrade": 1
+          },
+          "expected": []
+        },
+        {
+          "uuid": "779bf69a-f5c4-4b53-949f-3f05fd4bd814",
+          "description": "Students are sorted by name in a grade",
+          "property": "roster",
+          "input": {
+            "students": [["Franklin", 5], ["Bradley", 5], ["Jeff", 1]],
+            "desiredGrade": 5
+          },
+          "expected": ["Bradley", "Franklin"]
+        }
+    ]
+}
